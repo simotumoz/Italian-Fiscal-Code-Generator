@@ -19,7 +19,7 @@ public class CodiceFiscale {
 	@SuppressWarnings("rawtypes")
 	private static ArrayList leggiCsv() {
 		List<String> datiComune = new ArrayList<>();
-		String filePath = "\\elencoCodiciCatastali.CSV";
+		String filePath = "yourFilePath";
 		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
 			String line;
 			while ((line = br.readLine()) != null) {
@@ -37,9 +37,8 @@ public class CodiceFiscale {
 	}
 
 	public static String findAndGetCatastalCode(ArrayList<String> listaCatasto, String cityToFind) {
-		String catCode = "";
+		String catCode = "XXXXX";
 		String cityTemp = "";
-		boolean cityfound = true;
 		for (int i = 0; i < listaCatasto.size(); i++) {
 
 			if ((listaCatasto.get(i).split(";")[1].equals(cityToFind.toUpperCase()))) {
@@ -58,13 +57,10 @@ public class CodiceFiscale {
 				} else
 					break;
 
-			} else cityfound = false;
+			}
 		}
-		
-		if (cityfound){
-			return catCode;
-		} else return "[City not found]";
-				
+
+		return catCode;
 	}
 
 	public static String deleteSpaces(String strWithSpaces) {
@@ -586,7 +582,7 @@ public class CodiceFiscale {
 		person.setNome("yourname");
 		person.setCognome("yoursurname");
 		person.setDataNascita("01/12/1900");
-		person.setLuogoNascita("yourcity");
+		person.setLuogoNascita("roma");
 		person.setGender("m");
 
 		SimpleDateFormat utente = new SimpleDateFormat("dd/MM/yyyy");
